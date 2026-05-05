@@ -6,19 +6,17 @@
 </head>
 <body>
     <div class="container mt-4">
-        
-        <div class="bg-primary text-white p-4 text-center rounded">
-            <h1>{{ pokemon.name|capfirst }}</h1>
+
+        <div class="bg-success text-white p-4 text-center rounded">
+            <h1>{{ pokemon.name }}</h1>
         </div>
 
         <div class="card mt-4">
             <div class="card-body">
-                <h3 class="card-title">Detalles del Pokémon</h3>
-                
+
+                <h3>Detalles</h3>
+
                 <ul class="list-group mt-3">
-                    <li class="list-group-item">
-                        <strong>Nombre:</strong> {{ pokemon.name }}
-                    </li>
                     <li class="list-group-item">
                         <strong>Tipo:</strong> {{ pokemon.type }}
                     </li>
@@ -33,6 +31,7 @@
                 <div class="mt-4 text-center">
                     <a href="/" class="btn btn-secondary">Volver</a>
                 </div>
+
             </div>
         </div>
 
