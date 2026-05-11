@@ -1,0 +1,9 @@
+.logo {
+    width: 500px;
+    height: auto;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+}

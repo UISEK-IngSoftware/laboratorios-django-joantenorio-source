@@ -1,26 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Pokedex</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <div class="container mt-4">
+{% extends 'base.html' %}
 
-        <div class="bg-primary text-white p-4 text-center rounded">
-            <h1>Mi Pokedex</h1>
-        </div>
+{% block title %}Página Inicial{% endblock %}
 
-        <ul class="list-group mt-4">
-            {% for pokemon in pokemons %}
-                <li class="list-group-item">
-                    <a href="/pokemon/{{ pokemon.name }}/">
-                        {{ pokemon.name }}
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-
+{% block content %}
+    <h2 class="mt-4">Pokémons</h2>
+    <div class="row mt-3">
+        {% for pokemon in pokemons %}
+            <div class="col-4 mb-4">
+                <div class="card">
+                    {% if pokemon.picture %}
+                        <img src="{{ pokemon.picture.url }}" class="card-img-top" alt="{{ pokemon.name }}">
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ pokemon.name }}</h5>
+                        <a href="/pokemon/{{ pokemon.name }}/" class="btn btn-primary btn-sm">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+
+    <h2 class="mt-4">Trainers</h2>
+    <ul class="list-group">
+        {% for trainer in trainers %}
+            <li class="list-group-item">
+                <a href="/trainer/{{ trainer.id }}/">
+                    {{ trainer.first_name }} {{ trainer.last_name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 680 160">
+  <defs>
+    <style>
+      .letra { font-family: Arial Black, Arial; font-weight: 900; font-size: 90px; }
+    </style>
+  </defs>
+  <circle cx="90" cy="80" r="55" fill="#CC0000" stroke="#003A8C" stroke-width="4"/>
+  <path d="M35 80 Q35 25 90 25 Q145 25 145 80" fill="#CC0000"/>
+  <path d="M35 80 Q35 135 90 135 Q145 135 145 80" fill="white"/>
+  <rect x="35" y="74" width="110" height="12" fill="#1a1a1a"/>
+  <circle cx="90" cy="80" r="18" fill="white" stroke="#1a1a1a" stroke-width="4"/>
+  <circle cx="90" cy="80" r="9" fill="#f0f0f0"/>
+  <text x="390" y="130" text-anchor="middle" class="letra" fill="#003A8C" stroke="#003A8C" stroke-width="18" stroke-linejoin="round">POKÉDEX</text>
+  <text x="390" y="130" text-anchor="middle" class="letra" fill="#FFCB05" stroke="#2A75BB" stroke-width="6" stroke-linejoin="round">POKÉDEX</text>
+  <text x="390" y="130" text-anchor="middle" class="letra" fill="#FFCB05">POKÉDEX</text>
+</svg>

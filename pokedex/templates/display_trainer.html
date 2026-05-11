@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ trainer.first_name }} {{ trainer.last_name }}{% endblock %}
+
+{% block content %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h3>Detalles</h3>
+            <ul class="list-group mt-3">
+                <li class="list-group-item"><strong>Nivel:</strong> {{ trainer.level }}</li>
+                <li class="list-group-item"><strong>Fecha de nacimiento:</strong> {{ trainer.birthdate }}</li>
+            </ul>
+            <div class="mt-4 text-center">
+                <a href="/" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
