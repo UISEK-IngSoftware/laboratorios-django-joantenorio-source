@@ -1,33 +1,75 @@
 {% extends 'base.html' %}
 
-{% block title %}Página Inicial{% endblock %}
+{% block title %}
+Página Inicial
+{% endblock %}
 
 {% block content %}
-    <h2 class="mt-4">Pokémons</h2>
-    <div class="row mt-3">
-        {% for pokemon in pokemons %}
-            <div class="col-4 mb-4">
-                <div class="card">
-                    {% if pokemon.picture %}
-                        <img src="{{ pokemon.picture.url }}" class="card-img-top" alt="{{ pokemon.name }}">
-                    {% endif %}
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ pokemon.name }}</h5>
-                        <a href="/pokemon/{{ pokemon.name }}/" class="btn btn-primary btn-sm">Ver detalles</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
 
-    <h2 class="mt-4">Trainers</h2>
-    <ul class="list-group">
-        {% for trainer in trainers %}
-            <li class="list-group-item">
-                <a href="/trainer/{{ trainer.id }}/">
-                    {{ trainer.first_name }} {{ trainer.last_name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+<h2 class="mt-4">Pokémons</h2>
+
+<a href="{% url 'pokedex:addPokemon' %}" class="btn btn-success mb-3">
+    Agregar Pokemon
+</a>
+
+<div class="row mt-3">
+
+    {% for pokemon in pokemons %}
+
+        <div class="col-4 mb-4">
+
+            <div class="card">
+
+                {% if pokemon.picture %}
+                    <img src="{{ pokemon.picture.url }}" class="card-img-top" alt="{{ pokemon.name }}">
+                {% endif %}
+
+                <div class="card-body text-center">
+
+                    <h5 class="card-title">
+                        {{ pokemon.name }}
+                    </h5>
+
+                    <a href="/pokemon/{{ pokemon.name }}/" class="btn btn-primary btn-sm">
+                        Ver detalles
+                    </a>
+
+                    <a href="{% url 'pokedex:editPokemon' pokemon.id %}" class="btn btn-warning btn-sm">
+                        Editar
+                    </a>
+
+                    <a href="{% url 'pokedex:deletePokemon' pokemon.id %}" class="btn btn-danger btn-sm">
+                        Eliminar
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+<h2 class="mt-4">Trainers</h2>
+
+<ul class="list-group">
+
+    {% for trainer in trainers %}
+
+        <li class="list-group-item">
+
+            <a href="/trainer/{{ trainer.id }}/">
+
+                {{ trainer.first_name }} {{ trainer.last_name }}
+
+            </a>
+
+        </li>
+
+    {% endfor %}
+
+</ul>
+
 {% endblock %}
