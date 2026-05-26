@@ -1,6 +1,14 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
+from django.contrib.auth.views import LoginView
+
 from .models import Pokemon, Trainer
 from .forms import PokemonForm
+
+
+class CustomLoginView(LoginView):
+
+    template_name = 'login_form.html'
 
 
 def index(request):
@@ -34,6 +42,9 @@ def trainer(request, id):
 
 def addPokemon(request):
 
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
+
     if request.method == 'POST':
 
         form = PokemonForm(request.POST, request.FILES)
@@ -54,6 +65,9 @@ def addPokemon(request):
 
 
 def editPokemon(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
 
     pokemon = get_object_or_404(Pokemon, id=id)
 
@@ -81,6 +95,9 @@ def editPokemon(request, id):
 
 
 def deletePokemon(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
 
     pokemon = get_object_or_404(Pokemon, id=id)
 

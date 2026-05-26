@@ -94,6 +94,7 @@ python3 manage.py runserver
 #### Windows
 ~~~
 python manage.py runserver
+
 ~~~
 
 Una vez inicializado el servidor se deberá dirigir al siguiente enlace: <http://localhost:8000>
