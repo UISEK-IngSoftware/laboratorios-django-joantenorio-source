@@ -62,6 +62,14 @@ Página Inicial
 
 <h2 class="mt-4">Trainers</h2>
 
+{% if user.is_authenticated %}
+
+<a href="{% url 'pokedex:addTrainer' %}" class="btn btn-success mb-3">
+    Agregar Trainer
+</a>
+
+{% endif %}
+
 <ul class="list-group">
 
     {% for trainer in trainers %}
@@ -74,10 +82,24 @@ Página Inicial
 
             </a>
 
+            {% if user.is_authenticated %}
+
+                <a href="{% url 'pokedex:editTrainer' trainer.id %}"
+                   class="btn btn-warning btn-sm float-end ms-2">
+                    Editar
+                </a>
+
+                <a href="{% url 'pokedex:deleteTrainer' trainer.id %}"
+                   class="btn btn-danger btn-sm float-end">
+                    Eliminar
+                </a>
+
+            {% endif %}
+
         </li>
 
     {% endfor %}
 
 </ul>
 
-{% endblock %}python manage.py runserver
+{% endblock %}

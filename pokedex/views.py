@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.views import LoginView
 
 from .models import Pokemon, Trainer
-from .forms import PokemonForm
+from .forms import PokemonForm,TrainerForm
 
 
 class CustomLoginView(LoginView):
@@ -102,5 +102,69 @@ def deletePokemon(request, id):
     pokemon = get_object_or_404(Pokemon, id=id)
 
     pokemon.delete()
+
+    return redirect('pokedex:index')
+
+def addTrainer(request):
+
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
+
+    if request.method == 'POST':
+
+        form = TrainerForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('pokedex:index')
+
+    else:
+
+        form = TrainerForm()
+
+    return render(request, 'trainerForm.html', {
+        'form': form
+    })
+
+
+def editTrainer(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
+
+    trainer = get_object_or_404(Trainer, id=id)
+
+    if request.method == 'POST':
+
+        form = TrainerForm(
+            request.POST,
+            instance=trainer
+        )
+
+        if form.is_valid():
+
+            form.save()
+
+            return redirect('pokedex:index')
+
+    else:
+
+        form = TrainerForm(instance=trainer)
+
+    return render(request, 'trainerForm.html', {
+        'form': form
+    })
+
+
+def deleteTrainer(request, id):
+
+    if not request.user.is_authenticated:
+        return redirect('pokedex:login')
+
+    trainer = get_object_or_404(Trainer, id=id)
+
+    trainer.delete()
 
     return redirect('pokedex:index')

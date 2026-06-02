@@ -34,4 +34,10 @@ urlpatterns = [
 
     path('deletePokemon/<int:id>/', views.deletePokemon, name='deletePokemon'),
 
+    path('addTrainer/', views.addTrainer, name='addTrainer'),
+
+    path('editTrainer/<int:id>/', views.editTrainer, name='editTrainer'),
+
+    path('deleteTrainer/<int:id>/', views.deleteTrainer, name='deleteTrainer'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
