@@ -24,7 +24,7 @@ urlpatterns = [
         name='logout'
     ),
 
-    path('pokemon/<str:pokemon>/', views.pokemon, name='pokemon'),
+    path('pokemon/<int:id>/', views.pokemon, name='pokemon'),
 
     path('trainer/<int:id>/', views.trainer, name='trainer'),
 

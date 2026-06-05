@@ -22,14 +22,13 @@ def index(request):
     })
 
 
-def pokemon(request, pokemon):
+def pokemon(request, id):
 
-    pokemon_obj = get_object_or_404(Pokemon, name=pokemon)
+    pokemon_obj = get_object_or_404(Pokemon, id=id)
 
     return render(request, 'display_pokemon.html', {
         'pokemon': pokemon_obj
     })
-
 
 def trainer(request, id):
 
