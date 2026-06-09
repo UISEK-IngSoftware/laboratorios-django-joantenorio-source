@@ -5,6 +5,9 @@ from django.contrib.auth.views import LoginView
 from .models import Pokemon, Trainer
 from .forms import PokemonForm,TrainerForm
 
+from oauth2_provider.contrib.rest_framework import TokenHasScope, OAuth2Authentication
+from rest_framework.permissions import IsAuthenticated, AllowAny
+
 
 class CustomLoginView(LoginView):
 

@@ -69,7 +69,7 @@ py -m venv .venv
 ~~~
 Activación del ambiente virtual para CMD
 ~~~
-.venv\Scripts\activate
+.venv\Scripts\activate.venv\Scripts\activate
 ~~~
 Activación del ambiente virtual para PowerShell
 ~~~
