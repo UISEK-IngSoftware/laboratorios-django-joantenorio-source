@@ -40,11 +40,13 @@ INSTALLED_APPS = [
     'pokedex',
     'oauth2_provider',
     'rest_framework',
+    'corsheaders',
     'api',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -147,3 +149,5 @@ OAUTH2_PROVIDER = {
         'refresh_token',
     ]
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
